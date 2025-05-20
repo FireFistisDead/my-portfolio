@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audio Deepfake Detection Project</title>
+  <style>
+    :root {
+      --bg-color-dark: #121212;
+      --card-bg-dark: #1e1e1e;
+      --text-color-dark: white;
+      --shadow-color-dark: rgba(255, 255, 255, 0.1);
+
+      --bg-color-light: #f5f5f5;
+      --card-bg-light: #ffffff;
+      --text-color-light: #222;
+      --shadow-color-light: rgba(0, 0, 0, 0.1);
+
+      --highlight-color: #FFD700;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-color-dark);
+      color: var(--text-color-dark);
+    }
+    body.light-mode {
+      background-color: var(--bg-color-light);
+      color: var(--text-color-light);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    .project-detail-card.dark-mode {
+      background-color: var(--card-bg-dark);
+      box-shadow: 0 0 15px var(--shadow-color-dark);
+    }
+    .project-detail-card.light-mode {
+      background-color: var(--card-bg-light);
+      box-shadow: 0 0 15px var(--shadow-color-light);
+    }
+
+    .project-detail-card {
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 800px;
+      width: 100%;
+      transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 32px;
+    }
+
+    .date {
+      font-size: 14px;
+      margin-bottom: 20px;
+      display: block;
+      opacity: 0.7;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    a.github-link,
+    a.pdf-link {
+      color: var(--highlight-color);
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    a.github-link:hover,
+    a.pdf-link:hover {
+      text-decoration: underline;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: var(--highlight-color);
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+      .project-detail-card {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="projectCard" class="project-detail-card">
+    <h1>Audio Deepfake Detection Using AASIST, RawNet2, and LCNN</h1>
+    <span class="date">Mar 2024 – Apr 2025</span>
+
+    <a href="https://github.com/FireFistisDead/Deepfake-Detection" class="github-link" target="_blank" rel="noopener noreferrer">
+      GitHub Repository &rarr;
+    </a><br />
+
+    <a href="../docs/deepfake-doc.pdf" class="pdf-link" target="_blank" download>
+       Download Documentation (PDF) &rarr;
+    </a>
+
+    <p>
+      This project aims to develop a high-performance system to detect AI-generated synthetic speech using deep learning techniques. The detection pipeline includes fine-tuned state-of-the-art models like AASIST (attention-based graph network), RawNet2 (end-to-end raw waveform model), and LCNN (lightweight CNN using Max-Feature-Map).
+    </p>
+
+    <p>
+      We used the ASVspoof2019 dataset for training and validation and performed fine-tuning with cosine learning rate scheduling and custom dataloaders for optimal performance in low-data scenarios. Each model was evaluated on its precision and robustness in differentiating between real and spoofed audio.
+    </p>
+
+    <p>
+      Extensive documentation was created with detailed experimental results, architectural comparisons, and research-backed justifications to ensure transparency and reproducibility. The final model setup is deployable and highly effective in real-world applications for detecting deepfake audio threats.
+    </p>
+
+    <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+  </div>
+
+  <script>
+    const savedMode = localStorage.getItem('mode'); // 'dark' or 'light'
+    const body = document.body;
+    const card = document.getElementById('projectCard');
+
+    if (savedMode === 'light') {
+      body.classList.add('light-mode');
+      card.classList.add('light-mode');
+    } else {
+      body.classList.add('dark-mode');
+      card.classList.add('dark-mode');
+    }
+  </script>
+</body>
+</html>
